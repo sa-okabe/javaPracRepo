@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>入力画面</title>
+</head>
+<body>
+<form th:action="@{/confirm}" method="post">
+	<div>
+		<label for="name">問0:</label>
+		<input type="text" name="name">
+		<input type="submit" value="送信" name="no0">
+	</div>
+</form>
+<form th:action="@{/confirm2}" method="post">
+<div>
+		<label for="name2">問1:</label>
+		<input type="text" name="name2">
+		<input type="submit" value="送信" name="no1">
+	</div>
+	</form>
+<form th:action="@{/confirm3}" method="post">
+<div>
+		<label for="name3">問2:パトカータクシーと入力してください</label>
+		<input type="text" name="name3">
+		<input type="submit" value="送信" name="no2">
+	</div>
+	</form>
+	<form th:action="@{/confirm4}" method="post">
+<div>
+		<label for="name3">問3:</label>
+		<input type="text" name="name4">
+		<input type="submit" value="送信" name="no3">
+	</div>
+	</form>
+	<form th:action="@{/confirm5}" method="post">
+<div>
+		<label for="name3">問4:「」のどれかを入力してください。</label>
+		<input type="text" name="name5">
+		<input type="submit" value="送信" name="no4">
+	</div>
+	</form>
+	<form th:action="@{/confirm6}" method="post">
+<div>
+		<label for="name3">問5:</label>
+		<input type="text" name="name6">
+		<input type="submit" value="送信" name="no5">
+	</div>
+	</form>
+	<form th:action="@{/confirm7}" method="post">
+<div>
+		<label for="name3">問6:</label>
+		<input type="text" name="name7">
+		<input type="text" name="name8">
+		<input type="text" name="name9">
+		<input type="submit" value="送信" name="no6">
+	</div>
+	</form>
+	<form th:action="@{/confirm8}" method="post">
+<div>
+		<label for="name3">問7:</label>
+		<input type="text" name="name10">
+		<input type="text" name="name11">
+		<input type="text" name="name12">
+		<input type="submit" value="送信" name="no7">
+	</div>
+	</form>
+	<form th:action="@{/confirm9}" method="post">
+<div>
+		<label for="name3">問8:暗号化</label>
+		<input type="text" name="name13">
+		<input type="submit" value="送信" name="no8">
+	</div>
+	</form>
+	<form th:action="@{/confirm10}" method="post">
+<div>
+		<label for="name3">問8:復号化</label>
+		<input type="text" name="name14">
+		<input type="submit" value="送信" name="no9">
+	</div>
+	</form>
+	<form th:action="@{/confirm11}" method="post">
+<div>
+		<label for="name3">問9:</label>
+		<input type="text" name="name15">
+		<input type="submit" value="送信" name="no10">
+	</div>
+	</form>
+</body>
+</html>
