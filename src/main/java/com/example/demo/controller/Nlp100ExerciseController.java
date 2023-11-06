@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -97,9 +98,9 @@ public class Nlp100ExerciseController {
 	/** 問4を表示する */
 	@PostMapping(value = "confirm5", params = "no4")
 	public String solutionD(Model model, @RequestParam String name5) {
-		Integer ex = SymbolFunction.SymbolLogic(name5);
+		Integer num = SymbolFunction.SymbolLogic(name5);
 
-		model.addAttribute("ans5", ex);
+		model.addAttribute("ans5", num);
 
 		return "confirm5";
 
@@ -194,38 +195,17 @@ public class Nlp100ExerciseController {
 	@PostMapping(value = "confirm9", params = "no8")
 	public String solutionH(Model model, @RequestParam String name13) throws Exception {
 		String encryptedText = CipherFunction.cipher(name13);
-//		String doneEncode = null;
-//		if (name13.matches("^[a-z]+$")) {
-//			try {
-//				doneEncode = CipherFunction.cipher(name13);
-//			} catch (GeneralSecurityException e) {
-//				// TODO 自動生成された catch ブロック
-//				e.printStackTrace();
-//			}
-//			model.addAttribute("ans15", doneEncode);
-//			System.out.println(doneEncode);
-//		} else {
-//			result = name13;
-//			model.addAttribute("ans15", result);
-//		}
-		
 		model.addAttribute("ans15", encryptedText);
 		return "confirm9";
 	}
 
 	/** 問8を表示する(復号化Ver) 
+	 * @throws GeneralSecurityException 
 	 * @throws Exception */
 	@PostMapping(value = "confirm10", params = "no9")
-	public String solutionI(Model model, @RequestParam String name14){
-		String decodeCipher;
-		try {
-			decodeCipher = CipherFunction.decodeCipher(name14);
-			System.out.println(decodeCipher);
-			model.addAttribute("ans16", decodeCipher);
-		} catch (Exception e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
-		}
+	public String solutionI(Model model, @RequestParam String name14) throws GeneralSecurityException {
+		String decryptedText = CipherFunction.cipher(name14);
+		model.addAttribute("ans16", decryptedText);
 		return "confirm10";
 	}
 
