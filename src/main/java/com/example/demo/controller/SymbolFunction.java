@@ -1,86 +1,48 @@
 package com.example.demo.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class SymbolFunction {
 	public static Integer SymbolLogic(String name5) {
-		//		List<String> symbolRowList = new ArrayList<>();
-		//		List<String> symbolFirstList = new ArrayList<>();
-		//		List<String> symbolSecondList = new ArrayList<>();
+		List<String> symbolRowList = new ArrayList<>();
 		String strangeProse = "Hi He Lied Because Boron Could Not Oxidize Fluorine. New Nations Might Also Sign Peace Security Clause. Arthur King Can";
 		String[] words = strangeProse.split("\\s+"); // 文字列を単語に分割する
-		//Map<String, Integer> firstMap = new HashMap<String, Integer>();
 		Map<String, Integer> symbolMap = new HashMap<String, Integer>();
-		String firstString = "";
 		Integer result = 0;
 
-		for (String first : words) {
-			for (int i = 0; i < first.length(); i++) {
-				if (first.contains("Hi") || first.contains("Boron") || first.contains("Could") || first.contains("Not")
-						|| first.contains("Oxidize") || first.contains("Fluorine") || first.contains("Peace")
-						|| first.contains("Security") || first.contains("King")) {
-					char firstChar = first.charAt(0);
-					firstString = String.valueOf(firstChar);
-					symbolMap.put(firstString, i + 1);
-				} else {
-					String secondChar = first.substring(0, 2);
-					symbolMap.put(secondChar, i + 1);
-					System.out.println("secondCharの中身は" + secondChar);
-				}
-			}
+		for (String symbols : words) {
+			symbolRowList.add(symbols);
 		}
-		System.out.println("Mapの中身は..." + symbolMap);
-		//
-		//		for (String symbols : words) {
-		//			symbolRowList.add(symbols);
-		//		}
-		//		//1文字め取得するリスト
-		//		symbolFirstList.add(symbolRowList.get(0));
-		//		symbolFirstList.add(symbolRowList.get(4));
-		//		symbolFirstList.add(symbolRowList.get(5));
-		//		symbolFirstList.add(symbolRowList.get(6));
-		//		symbolFirstList.add(symbolRowList.get(7));
-		//		symbolFirstList.add(symbolRowList.get(8));
-		//		symbolFirstList.add(symbolRowList.get(14));
-		//		symbolFirstList.add(symbolRowList.get(15));
-		//		symbolFirstList.add(symbolRowList.get(18));
-		//
-		//		//System.out.println(symbolFirstList);
-		//
-		//		//2文字め取得するリスト
-		//		symbolSecondList.add(symbolRowList.get(1));
-		//		symbolSecondList.add(symbolRowList.get(2));
-		//		symbolSecondList.add(symbolRowList.get(3));
-		//		symbolSecondList.add(symbolRowList.get(9));
-		//		symbolSecondList.add(symbolRowList.get(10));
-		//		symbolSecondList.add(symbolRowList.get(11));
-		//		symbolSecondList.add(symbolRowList.get(12));
-		//		symbolSecondList.add(symbolRowList.get(13));
-		//		symbolSecondList.add(symbolRowList.get(16));
-		//		symbolSecondList.add(symbolRowList.get(17));
-		//
-		//		//System.out.println(symbolSecondList);
-		//
-		//		for (String first : symbolFirstList) {
-		//			for (int i = 0; i < first.length(); i++) {
-		//				char firstChar = first.charAt(0);
-		//				String firstString = String.valueOf(firstChar);
-		//				firstMap.put(firstString, i + 1);
-		//			}
-		//		}
-		//		System.out.println(firstMap);
-		//
-		//		for (String second : symbolSecondList) {
-		//			String secondChar = second.substring(0, 1);
-		//		}
-		//		
+		//1文字め取得するリスト
+		symbolMap.put(symbolRowList.get(0), 1);
+		symbolMap.put(symbolRowList.get(4), 5);
+		symbolMap.put(symbolRowList.get(5), 6);
+		symbolMap.put(symbolRowList.get(6), 7);
+		symbolMap.put(symbolRowList.get(7), 8);
+		symbolMap.put(symbolRowList.get(8), 9);
+		symbolMap.put(symbolRowList.get(14), 15);
+		symbolMap.put(symbolRowList.get(15), 16);
+		symbolMap.put(symbolRowList.get(18), 19);
+
+		//2文字め取得するリスト
+		symbolMap.put(symbolRowList.get(1), 2);
+		symbolMap.put(symbolRowList.get(2), 3);
+		symbolMap.put(symbolRowList.get(3), 4);
+		symbolMap.put(symbolRowList.get(9), 10);
+		symbolMap.put(symbolRowList.get(10), 11);
+		symbolMap.put(symbolRowList.get(11), 12);
+		symbolMap.put(symbolRowList.get(12), 13);
+		symbolMap.put(symbolRowList.get(13), 14);
+		symbolMap.put(symbolRowList.get(16), 17);
+		symbolMap.put(symbolRowList.get(17), 18);
+
 		if (symbolMap.containsKey(name5)) {
 			int value = symbolMap.get(name5);
-			result = value;
+			result = value;	
 		}
-
-		System.out.println("結果は" + result);
 
 		return result;
 	}

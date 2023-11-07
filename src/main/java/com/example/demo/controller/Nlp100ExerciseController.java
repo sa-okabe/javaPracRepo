@@ -130,23 +130,17 @@ public class Nlp100ExerciseController {
 		Set<String> X = NgramFunction.produceBiGrams(name7);
 		Set<String> Y = NgramFunction.produceBiGrams2(name8);
 
-		System.out.println("X: " + X);
-		System.out.println("Y: " + Y);
-
 		// 和集合を計算
 		Set<String> union = new HashSet<>(X);
 		union.addAll(Y);
-		System.out.println("和集合: " + union);
 
 		// 積集合を計算(X ∩ Y)
 		Set<String> intersection = new HashSet<>(X);
 		intersection.retainAll(Y);
-		System.out.println("積集合: " + intersection);
 
 		// 差集合を計算(-)
 		Set<String> differences = new HashSet<>(X);
 		differences.removeAll(Y);
-		System.out.println("差集合: " + differences);
 
 		// 'se' の存在チェック
 		String ans10 = "";
@@ -164,9 +158,6 @@ public class Nlp100ExerciseController {
 		} else {
 			ans11 = "ない";
 		}
-
-		System.out.println("'se' は X に含まれ" + ans10);
-		System.out.println("'se' は Y に含まれ: " + ans11);
 
 		model.addAttribute("ans7", union);
 		model.addAttribute("ans8", intersection);
@@ -195,7 +186,9 @@ public class Nlp100ExerciseController {
 	@PostMapping(value = "confirm9", params = "no8")
 	public String solutionH(Model model, @RequestParam String name13) throws Exception {
 		String encryptedText = CipherFunction.cipher(name13);
+		
 		model.addAttribute("ans15", encryptedText);
+		
 		return "confirm9";
 	}
 
@@ -205,7 +198,9 @@ public class Nlp100ExerciseController {
 	@PostMapping(value = "confirm10", params = "no9")
 	public String solutionI(Model model, @RequestParam String name14) throws GeneralSecurityException {
 		String decryptedText = CipherFunction.cipher(name14);
+		
 		model.addAttribute("ans16", decryptedText);
+		
 		return "confirm10";
 	}
 
@@ -214,9 +209,11 @@ public class Nlp100ExerciseController {
 	public String solutionJ(Model model, @RequestParam String name15) {
 		String resultSentense = "";
 		List<String> shuffledSentense = TypoglycemiaFuction.typoLogic(name15);
+		
 		for (String result : shuffledSentense) {
 			resultSentense += result + " ";
 		}
+		
 		model.addAttribute("ans17", resultSentense);
 
 		return "confirm11";
